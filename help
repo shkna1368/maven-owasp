@@ -1,0 +1,69 @@
+ 
+mvn org.owasp:dependency-check-maven:check
+
+
+
+
+
+ <dependency>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+            <version>10.0.4</version>
+            <type>maven-plugin</type>
+        </dependency>
+
+
+ <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>10.0.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+      
+
+
+
+
+for multi module project :
+mvn org.owasp:dependency-check-maven:aggregate 
+
+
+    <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>10.0.4</version>
+
+                    <configuration>
+                        <reportSets>
+                            <reportSet>
+                                <reports>
+                                    <report>aggregate</report>
+                                </reports>
+                            </reportSet>
+                        </reportSets>
+                        <skipProvidedScope>true</skipProvidedScope>
+
+                    </configuration>
+
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+
+
+                    </executions>
+
+                </plugin>
+
+
+
+
+in target folder search for : dependency-check-report.html
